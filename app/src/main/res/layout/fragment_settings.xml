@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_settings"
     android:layout_width="match_parent"
@@ -8,8 +8,92 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context="com.shtainyky.mathquizforkids.SettingsActivityFragment"
     tools:showIn="@layout/activity_settings">
+    <TextView
+        android:id="@+id/adding_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/adding_text"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"/>
+    <FrameLayout
+        android:id="@+id/container_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/subtraction_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/subtraction_text"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"/>
+    <FrameLayout
+        android:id="@+id/container_sub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/multiplication_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/multiplication_text"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"/>
+    <FrameLayout
+        android:id="@+id/container_mult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/division_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/division_text"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"/>
+    <FrameLayout
+        android:id="@+id/container_div"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/adding_and_subtraction_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/adding_and_subtraction_text"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"/>
+    <FrameLayout
+        android:id="@+id/container_add_and_sub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/multiplication_and_division_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/multiplication_and_division_text"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"/>
+    <FrameLayout
+        android:id="@+id/container_mult_and_div"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/inequalities_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/inequalities_text"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"/>
+    <FrameLayout
+        android:id="@+id/container_inequalities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 
-</RelativeLayout>
+
+
+
+
+
+
+</LinearLayout>

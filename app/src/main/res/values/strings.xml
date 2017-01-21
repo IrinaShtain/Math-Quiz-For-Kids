@@ -15,4 +15,23 @@
     <string name="image_description">Image of the current math question in the quiz</string>
     <string name="default_region">North_America</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="adding_text">Adding</string>
+    <string name="till_ten">till 10</string>
+    <string name="till_twenty">till 20</string>
+    <string name="till_hundred">till 100</string>
+    <string name="subtraction_text">Subtraction</string>
+    <string name="multiplication_text">Multiplication</string>
+    <string name="division_text">Division</string>
+    <string name="adding_and_subtraction_text">Adding and Subtraction</string>
+    <string name="multiplication_and_division_text">Multiplication and Division</string>
+    <string name="inequalities_text">Inequalities</string>
+    <string name="second_table">*2</string>
+    <string name="third_table">*3</string>
+    <string name="fourth_table">*4</string>
+    <string name="fiveth_table">*5</string>
+    <string name="sixth_table">*6</string>
+    <string name="seventh_table">*7</string>
+    <string name="eightth_table">*8</string>
+    <string name="nineth_table">*9</string>
+    <string name="tenth_table">*10</string>
 </resources>

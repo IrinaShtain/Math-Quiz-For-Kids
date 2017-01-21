@@ -23,63 +23,62 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_weight="1">
 
         <TextView
-            android:text="N1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
             android:id="@+id/Num1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/spacing"
             android:layout_toStartOf="@+id/sign"
-            android:layout_toLeftOf="@+id/sign"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:textSize="50sp"
+            android:gravity="center_vertical"
+            android:text="N1"
             android:textColor="@color/colorAccent"
+            android:textSize="50sp"
+            android:textStyle="bold"
             android:layout_marginRight="@dimen/spacing"
-            android:layout_marginEnd="@dimen/spacing"/>
+            android:layout_toLeftOf="@+id/sign" />
 
         <TextView
-            android:text="N2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
             android:id="@+id/Num2"
-            android:layout_toEndOf="@+id/sign"
-            android:layout_toRightOf="@+id/sign"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:textSize="50sp"
-            android:textColor="@color/colorAccent"
-            android:layout_marginLeft="@dimen/spacing"
-            android:layout_marginStart="@dimen/spacing"/>
-
-        <TextView
-            android:text="+"
-            android:textColor="@color/colorAccent"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/sign"
+            android:layout_marginStart="@dimen/spacing"
+            android:layout_toEndOf="@+id/sign"
+            android:gravity="center_vertical"
+            android:text="N2"
+            android:textColor="@color/colorAccent"
+            android:textSize="50sp"
             android:textStyle="bold"
+            android:layout_marginLeft="@dimen/spacing"
+            android:layout_toRightOf="@+id/sign" />
+
+        <TextView
+            android:id="@+id/sign"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@+id/imageView"
             android:layout_alignParentTop="false"
             android:layout_centerHorizontal="false"
-            android:layout_alignBottom="@+id/imageView"
             android:layout_centerInParent="true"
             android:layout_centerVertical="false"
             android:gravity="center_vertical"
+            android:text="+"
+            android:textColor="@color/colorAccent"
             android:textSize="@dimen/answer_size"
-            />
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:layout_gravity="center"
             android:contentDescription="@string/image_description"
             android:scaleType="fitXY"
             android:src="@drawable/image"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentLeft="true" />
 
     </RelativeLayout>
 
