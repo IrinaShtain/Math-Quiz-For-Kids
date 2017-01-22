@@ -25,13 +25,22 @@
     <string name="adding_and_subtraction_text">Adding and Subtraction</string>
     <string name="multiplication_and_division_text">Multiplication and Division</string>
     <string name="inequalities_text">Inequalities</string>
-    <string name="second_table">*2</string>
-    <string name="third_table">*3</string>
-    <string name="fourth_table">*4</string>
-    <string name="fiveth_table">*5</string>
-    <string name="sixth_table">*6</string>
-    <string name="seventh_table">*7</string>
-    <string name="eightth_table">*8</string>
-    <string name="nineth_table">*9</string>
-    <string name="tenth_table">*10</string>
+    <string name="second_table">Multiply by 2</string>
+    <string name="third_table">Multiply by 3</string>
+    <string name="fourth_table">Multiply by 4</string>
+    <string name="fiveth_table">Multiply by 5</string>
+    <string name="sixth_table">Multiply by 6</string>
+    <string name="seventh_table">Multiply by 7</string>
+    <string name="eightth_table">Multiply by 8</string>
+    <string name="nineth_table">Multiply by 9</string>
+    <string name="tenth_table">Multiply by 10</string>
+    <string name="random_table">Multiply by random</string>
+    <string name="Chose_text">Please, choose your settings for quiz</string>
+    <string name="let_play">Let\'s play</string>
+    <string name="no_operation">Please, choose operation</string>
+    <string name="no_limits">Please, choose bound for the chosen operation</string>
+    <string name="choosen_setting">You have chosen such operation as </string>
+    <string name="till">till </string>
+    <string name="by">by </string>
+
 </resources>

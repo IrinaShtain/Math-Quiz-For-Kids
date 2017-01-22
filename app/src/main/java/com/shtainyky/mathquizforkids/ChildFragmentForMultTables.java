@@ -6,49 +6,79 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RadioGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 public class ChildFragmentForMultTables extends Fragment {
     View view;
-    int tableNumber;
-    private RadioGroup radioGroup;
+    private Spinner spinner;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.chosing_mult_div, null);
-        radioGroup = (RadioGroup) view.findViewById(R.id.radiogroup_mult);
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        spinner = (Spinner) view.findViewById(R.id.spinner);
+        String[] strings = {
+                getActivity().getResources().getString(R.string.second_table),
+                getActivity().getResources().getString(R.string.second_table),
+                getActivity().getResources().getString(R.string.third_table),
+                getActivity().getResources().getString(R.string.fourth_table),
+                getActivity().getResources().getString(R.string.fiveth_table),
+                getActivity().getResources().getString(R.string.sixth_table),
+                getActivity().getResources().getString(R.string.seventh_table),
+                getActivity().getResources().getString(R.string.eightth_table),
+                getActivity().getResources().getString(R.string.nineth_table),
+                getActivity().getResources().getString(R.string.tenth_table),
+                getActivity().getResources().getString(R.string.random_table)
+        };
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, strings);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.second_table:
-                        tableNumber = 2;
-                    case R.id.third_table:
-                        tableNumber = 3;
-                    case R.id.fourth_table:
-                        tableNumber = 4;
-                    case R.id.fiveth_table:
-                        tableNumber = 5;
-                    case R.id.sixth_table:
-                        tableNumber = 6;
-                    case R.id.seventh_table:
-                        tableNumber = 7;
-                    case R.id.eightth_table:
-                        tableNumber = 8;
-                    case R.id.nineth_table:
-                        tableNumber = 9;
-                    case R.id.tenth_table:
-                        tableNumber = 10;
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        QueryPreferences.setStoredPositionSwitchNumber(getContext(), 2);
+                        break;
+                    case 1:
+                        QueryPreferences.setStoredPositionSwitchNumber(getContext(), 3);
+                        break;
+                    case 2:
+                        QueryPreferences.setStoredPositionSwitchNumber(getContext(), 4);
+                        break;
+                    case 3:
+                        QueryPreferences.setStoredPositionSwitchNumber(getContext(), 5);
+                        break;
+                    case 4:
+                        QueryPreferences.setStoredPositionSwitchNumber(getContext(), 6);
+                        break;
+                    case 5:
+                        QueryPreferences.setStoredPositionSwitchNumber(getContext(), 7);
+                        break;
+                    case 6:
+                        QueryPreferences.setStoredPositionSwitchNumber(getContext(), 8);
+                        break;
+                    case 7:
+                        QueryPreferences.setStoredPositionSwitchNumber(getContext(), 9);
+                        break;
+                    case 8:
+                        QueryPreferences.setStoredPositionSwitchNumber(getContext(), 10);
+                        break;
+                    case 9:
+                        QueryPreferences.setStoredPositionSwitchNumber(getContext(), 11);
+                        break;
                 }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
         return view;
 
     }
-
-    public int getTableNumber() {
-        return tableNumber;
-    }
-
 }

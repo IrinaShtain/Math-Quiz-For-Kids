@@ -26,7 +26,7 @@
         android:layout_weight="1">
 
         <TextView
-            android:id="@+id/Num1"
+            android:id="@+id/num_first"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/spacing"
@@ -40,7 +40,7 @@
             android:layout_toLeftOf="@+id/sign" />
 
         <TextView
-            android:id="@+id/Num2"
+            android:id="@+id/num_second"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/spacing"
@@ -103,9 +103,10 @@
             android:lines="2"
             android:textColor="@color/button_text_color"
             style="@android:style/Widget.Button"
-            android:id="@+id/button2" />
+            android:id="@+id/button_zero" />
 
         <Button
+            android:id="@+id/button_one"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -120,6 +121,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/button_two"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -127,6 +129,7 @@
             style="@android:style/Widget.Button"/>
 
         <Button
+            android:id="@+id/button_three"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -145,10 +148,11 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:lines="2"
-            android:id="@+id/button"
+            android:id="@+id/button_four"
             style="@android:style/Widget.Button"/>
 
         <Button
+            android:id="@+id/button_five"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

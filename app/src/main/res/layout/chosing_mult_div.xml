@@ -1,86 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/radiogroup_mult"
+<Spinner xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/spinner"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:padding="@dimen/spacing">
 
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:columnCount="5">
 
-        <RadioButton
-            android:id="@+id/second_table"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_row="0"
-            android:text="@string/second_table" />
 
-        <RadioButton
-            android:id="@+id/third_table"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="0"
-            android:text="@string/third_table" />
-
-        <RadioButton
-            android:id="@+id/fourth_table"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="2"
-            android:layout_row="0"
-            android:text="@string/fourth_table" />
-
-        <RadioButton
-            android:id="@+id/fiveth_table"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="3"
-            android:layout_row="0"
-            android:text="@string/fiveth_table" />
-
-        <RadioButton
-            android:id="@+id/sixth_table"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="4"
-            android:layout_row="0"
-            android:text="@string/sixth_table" />
-
-        <RadioButton
-            android:id="@+id/seventh_table"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_row="1"
-            android:text="@string/seventh_table" />
-
-        <RadioButton
-            android:id="@+id/eightth_table"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="1"
-            android:text="@string/eightth_table" />
-
-        <RadioButton
-            android:id="@+id/nineth_table"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="2"
-            android:layout_row="1"
-            android:text="@string/nineth_table" />
-
-        <RadioButton
-            android:id="@+id/tenth_table"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="3"
-            android:layout_row="1"
-            android:text="@string/tenth_table" />
-    </GridLayout>
-</RadioGroup>
+</Spinner>
