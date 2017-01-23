@@ -1,6 +1,6 @@
 package com.shtainyky.mathquizforkids;
 
-import android.content.res.Resources;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,7 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.shtainyky.mathquizforkids.utils.Constants;
+import com.shtainyky.mathquizforkids.utils.SettingsPreferences;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -26,7 +28,6 @@ public class SettingsActivityFragment extends Fragment implements View.OnClickLi
     private TextView inequalities_text;
     Button letsPlayButton;
     String whereAddedFragment = "noFragment";
-    boolean firstOperation = true;
 
     public SettingsActivityFragment() {
     }
@@ -49,69 +50,51 @@ public class SettingsActivityFragment extends Fragment implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.adding_text:
-                firstOperation = true;
+                SettingsPreferences.setStoredOperation(getContext(), true);
                 inflateFragment(0);
-                QueryPreferences.setStoredPosition(getContext(), Constants.ADDING);
+                SettingsPreferences.setStoredPosition(getContext(), Constants.ADDING);
                 break;
             case R.id.subtraction_text:
-                firstOperation = true;
+                SettingsPreferences.setStoredOperation(getContext(), true);
                 inflateFragment(1);
-                QueryPreferences.setStoredPosition(getContext(), Constants.SUBTRACTION);
+                SettingsPreferences.setStoredPosition(getContext(), Constants.SUBTRACTION);
                 break;
             case R.id.adding_and_subtraction_text:
-                firstOperation = true;
+                SettingsPreferences.setStoredOperation(getContext(), true);
                 inflateFragment(2);
-                QueryPreferences.setStoredPosition(getContext(), Constants.ADDING_AND_SUBTRACTION);
+                SettingsPreferences.setStoredPosition(getContext(), Constants.ADDING_OR_SUBTRACTION);
                 break;
             case R.id.inequalities_text:
-                firstOperation = true;
+                SettingsPreferences.setStoredOperation(getContext(), true);
                 inflateFragment(3);
-                QueryPreferences.setStoredPosition(getContext(), Constants.INEQUALITIES);
+                SettingsPreferences.setStoredPosition(getContext(), Constants.INEQUALITIES);
                 break;
             case R.id.multiplication_text:
-                firstOperation = false;
+                SettingsPreferences.setStoredOperation(getContext(), false);
                 inflateFragment(4);
-                QueryPreferences.setStoredPosition(getContext(), Constants.MULTIPLICATION);
+                SettingsPreferences.setStoredPosition(getContext(), Constants.MULTIPLICATION);
                 break;
             case R.id.division_text:
-                firstOperation = false;
+                SettingsPreferences.setStoredOperation(getContext(), false);
                 inflateFragment(5);
-                QueryPreferences.setStoredPosition(getContext(), Constants.DIVISION);
+                SettingsPreferences.setStoredPosition(getContext(), Constants.DIVISION);
                 break;
             case R.id.multiplication_and_division_text:
-                firstOperation = false;
+                SettingsPreferences.setStoredOperation(getContext(), false);
                 inflateFragment(6);
-                QueryPreferences.setStoredPosition(getContext(), Constants.MULTIPLICATION_AND_DIVISION);
+                SettingsPreferences.setStoredPosition(getContext(), Constants.MULTIPLICATION_OR_DIVISION);
                 break;
             case R.id.letsPlayButton:
-                textForLetsPlayButton();
+                SettingsPreferences.textForLetsPlayButton(getContext());
+                if (SettingsPreferences.OK)
+                {
+                    Intent intent = new Intent(getActivity(), MainActivity.class);
+                    startActivity(intent);
+                }
         }
 
     }
 
-    private void textForLetsPlayButton() {
-        String operation = QueryPreferences.getStoredPosition(getContext());
-        int limit = QueryPreferences.getStoredPositionSwitchNumber(getContext());
-        Resources resources = getResources();
-        if (operation.equals(Constants.NOTHING))
-            Toast.makeText(getContext(),
-                    resources.getString(R.string.no_operation),
-                    Toast.LENGTH_LONG).show();
-        else if (limit == 0)
-            Toast.makeText(getContext(),
-                    resources.getString(R.string.no_limits),
-                    Toast.LENGTH_LONG).show();
-        else {
-            String msg = resources.getString(R.string.choosen_setting) +
-                    " " + operation;
-            if (firstOperation)
-                msg = msg + " " + resources.getString(R.string.till) + " " + limit;
-            else
-                msg = msg + " " + resources.getString(R.string.by) + " " + limit;
-            Toast.makeText(getContext(),
-                    msg, Toast.LENGTH_LONG).show();
-        }
-    }
 
 
     private void initializationViews() {
@@ -134,7 +117,7 @@ public class SettingsActivityFragment extends Fragment implements View.OnClickLi
     }
 
     private void inflateFragment(int whichContainer) {
-        QueryPreferences.setStoredPositionSwitchNumber(getContext(), 0);
+        SettingsPreferences.setStoredPositionSwitchNumber(getContext(), 0);
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
@@ -215,6 +198,7 @@ public class SettingsActivityFragment extends Fragment implements View.OnClickLi
         fragmentTransaction.commit();
 
     }
+
 
 
 }

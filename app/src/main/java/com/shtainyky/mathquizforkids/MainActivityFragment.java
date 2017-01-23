@@ -10,21 +10,31 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.shtainyky.mathquizforkids.utils.Constants;
+import com.shtainyky.mathquizforkids.utils.SettingsPreferences;
+
+import java.util.Random;
+
 /**
  * A placeholder fragment containing a simple view.
  */
 public class MainActivityFragment extends Fragment implements View.OnClickListener {
     private static final String TAG = "MathQuiz Activity";
     private static final int QUESTIONS_IN_QUIZ = 10;
+    Random random = new Random();
     private Animation shakeAnimation;
-    int operationType = 1;
+    String operation;
+    int tillNumber;
     int number_one;
     int number_two;
+    int result;
+    String string_result;
 
 
     TextView firstNumber;
     TextView secondNumber;
     TextView sign;
+    TextView questionNumberTextView;
 
     Button button_zero;
     Button button_one;
@@ -41,6 +51,10 @@ public class MainActivityFragment extends Fragment implements View.OnClickListen
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_main, container, false);
+        questionNumberTextView = (TextView) view.findViewById(R.id.questionNumberTextView);
+
+        operation = SettingsPreferences.getStoredPosition(getContext());
+        tillNumber = SettingsPreferences.getStoredPositionSwitchNumber(getContext());
 
         sign = (TextView) view.findViewById(R.id.sign);
         firstNumber = (TextView) view.findViewById(R.id.num_first);
@@ -60,6 +74,8 @@ public class MainActivityFragment extends Fragment implements View.OnClickListen
         button_four.setOnClickListener(this);
         button_five.setOnClickListener(this);
 
+        generateQuiz();
+
         shakeAnimation = AnimationUtils.loadAnimation(getActivity(),
                 R.anim.incorrect_shake);
         shakeAnimation.setRepeatCount(3);
@@ -70,12 +86,126 @@ public class MainActivityFragment extends Fragment implements View.OnClickListen
     }
 
     @Override
+    public void onStart() {
+        operation = SettingsPreferences.getStoredPosition(getContext());
+        tillNumber = SettingsPreferences.getStoredPositionSwitchNumber(getContext());
+        generateQuiz();
+        super.onStart();
+    }
+
+    @Override
     public void onClick(View v) {
 
     }
-    private  void generateQuiz()
-    {
+
+    private void generateQuiz() {
+        for (int i = 1; i <= QUESTIONS_IN_QUIZ; i++) {
+            questionNumberTextView.setText(getResources().getString(R.string.question, i, QUESTIONS_IN_QUIZ));
+            generateQuestion();
+        }
+    }
+
+    private void generateQuestion() {
+        switch (operation) {
+            case Constants.ADDING:
+                adding();
+                break;
+            case Constants.SUBTRACTION:
+                subtraction();
+                break;
+            case Constants.ADDING_OR_SUBTRACTION:
+                if (random.nextBoolean())
+                    adding();
+                else
+                    subtraction();
+                break;
+            case Constants.MULTIPLICATION:
+                multiplication();
+                break;
+            case Constants.DIVISION:
+                division();
+                break;
+            case Constants.MULTIPLICATION_OR_DIVISION:
+                if (random.nextBoolean())
+                    multiplication();
+                else
+                    division();
+                break;
+            case Constants.INEQUALITIES:
+                break;
+
+
+        }
+    }
+
+    private void setNumberAndSign(int firstNum, int secondNum, String newSign) {
+        firstNumber.setText(String.valueOf(firstNum));
+        secondNumber.setText(String.valueOf(secondNum));
+        sign.setText(newSign);
+    }
+
+    private void randomNumbersForMultAndDiv(int number) {
+        number_one = random.nextInt(number);
+        number_two = random.nextInt(number);
+    }
+
+    private void randomNumbersForAddAndSub(int number) {
+        number_one = random.nextInt(number + 1);
+        number_two = random.nextInt(number - number_one + 1);
+    }
+
+    private void adding() {
+        randomNumbersForAddAndSub(tillNumber);
+        setNumberAndSign(number_one, number_two, "+");
+        result = number_one + number_two;
+    }
+
+    private void subtraction() {
+        randomNumbersForAddAndSub(tillNumber);
+        if (number_one > number_two) {
+            result = number_one - number_two;
+            setNumberAndSign(number_one, number_two, "-");
+        } else {
+            result = number_two - number_one;
+            setNumberAndSign(number_two, number_one, "-");
+        }
+    }
+
+    private void multiplication() {
+        if (tillNumber != 11) {
+            randomNumbersForMultAndDiv(tillNumber + 1);
+            setNumberAndSign(number_one, tillNumber, "*");
+            result = number_one * tillNumber;
+        } else {
+            randomNumbersForMultAndDiv(tillNumber);
+            setNumberAndSign(number_one, number_two, "*");
+            result = number_one * number_two;
+        }
+    }
+
+    private void division() {
+        if (tillNumber != 11) {
+            randomNumbersForMultAndDiv(tillNumber + 1);
+            setNumberAndSign(number_one * tillNumber, tillNumber, "/");
+            result = number_one;
+        } else {
+            randomNumbersForMultAndDiv(tillNumber);
+            setNumberAndSign(number_one * number_two, number_two, "/");
+            result = number_one;
+        }
+    }
+
+    private void inequalities() {
+        randomNumbersForMultAndDiv(tillNumber + 1);
+        setNumberAndSign(number_one, number_two, "?");
+        if (number_one > number_two)
+            string_result = ">";
+        else if (number_one < number_two)
+            string_result = ">";
+        else
+            string_result = "=";
 
     }
+
 
 }

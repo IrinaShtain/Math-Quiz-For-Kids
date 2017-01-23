@@ -10,6 +10,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.shtainyky.mathquizforkids.utils.SettingsPreferences;
+
 public class ChildFragmentForMultTables extends Fragment {
     View view;
     private Spinner spinner;
@@ -20,7 +22,6 @@ public class ChildFragmentForMultTables extends Fragment {
         view = inflater.inflate(R.layout.chosing_mult_div, null);
         spinner = (Spinner) view.findViewById(R.id.spinner);
         String[] strings = {
-                getActivity().getResources().getString(R.string.second_table),
                 getActivity().getResources().getString(R.string.second_table),
                 getActivity().getResources().getString(R.string.third_table),
                 getActivity().getResources().getString(R.string.fourth_table),
@@ -41,34 +42,34 @@ public class ChildFragmentForMultTables extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
-                        QueryPreferences.setStoredPositionSwitchNumber(getContext(), 2);
+                        SettingsPreferences.setStoredPositionSwitchNumber(getContext(), 2);
                         break;
                     case 1:
-                        QueryPreferences.setStoredPositionSwitchNumber(getContext(), 3);
+                        SettingsPreferences.setStoredPositionSwitchNumber(getContext(), 3);
                         break;
                     case 2:
-                        QueryPreferences.setStoredPositionSwitchNumber(getContext(), 4);
+                        SettingsPreferences.setStoredPositionSwitchNumber(getContext(), 4);
                         break;
                     case 3:
-                        QueryPreferences.setStoredPositionSwitchNumber(getContext(), 5);
+                        SettingsPreferences.setStoredPositionSwitchNumber(getContext(), 5);
                         break;
                     case 4:
-                        QueryPreferences.setStoredPositionSwitchNumber(getContext(), 6);
+                        SettingsPreferences.setStoredPositionSwitchNumber(getContext(), 6);
                         break;
                     case 5:
-                        QueryPreferences.setStoredPositionSwitchNumber(getContext(), 7);
+                        SettingsPreferences.setStoredPositionSwitchNumber(getContext(), 7);
                         break;
                     case 6:
-                        QueryPreferences.setStoredPositionSwitchNumber(getContext(), 8);
+                        SettingsPreferences.setStoredPositionSwitchNumber(getContext(), 8);
                         break;
                     case 7:
-                        QueryPreferences.setStoredPositionSwitchNumber(getContext(), 9);
+                        SettingsPreferences.setStoredPositionSwitchNumber(getContext(), 9);
                         break;
                     case 8:
-                        QueryPreferences.setStoredPositionSwitchNumber(getContext(), 10);
+                        SettingsPreferences.setStoredPositionSwitchNumber(getContext(), 10);
                         break;
                     case 9:
-                        QueryPreferences.setStoredPositionSwitchNumber(getContext(), 11);
+                        SettingsPreferences.setStoredPositionSwitchNumber(getContext(), 11);
                         break;
                 }
             }
