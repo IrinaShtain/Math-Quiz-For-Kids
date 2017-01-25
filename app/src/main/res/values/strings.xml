@@ -4,9 +4,14 @@
     <string name="guess_country">Guess the Right Answer, Please</string>
     <string name="results">%1$d guesses, %2$.02f%% correct</string>
     <string name="incorrect_answer">Incorrect!</string>
+    <string name="correct_answer">Correct!</string>
     <string name="restarting_quiz">Quiz will restart with your new settings</string>
     <string name="question">Question %1$d of %2$d</string>
+
     <string name="reset_quiz">Reset Quiz</string>
+    <string name="choose">Would you like to</string>
+    <string name="choose_reset">restart quiz \?</string>
+    <string name="choose_setting">make new setting \?</string>
     <string name="image_description">Image of the current math question in the quiz</string>
     <string name="title_activity_settings">Settings</string>
     <string name="adding_text">Adding</string>
@@ -36,5 +41,7 @@
     <string name="choosen_setting">You have chosen such operation as </string>
     <string name="till">till </string>
     <string name="by">by </string>
+    <string name="quiz_result_part">You have </string>
+    <string name="quiz_result">of right answers</string>
 
 </resources>

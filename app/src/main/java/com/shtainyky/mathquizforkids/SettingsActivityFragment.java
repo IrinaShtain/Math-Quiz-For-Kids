@@ -95,8 +95,6 @@ public class SettingsActivityFragment extends Fragment implements View.OnClickLi
 
     }
 
-
-
     private void initializationViews() {
         letsPlayButton = (Button) view.findViewById(R.id.letsPlayButton);
         letsPlayButton.setOnClickListener(this);

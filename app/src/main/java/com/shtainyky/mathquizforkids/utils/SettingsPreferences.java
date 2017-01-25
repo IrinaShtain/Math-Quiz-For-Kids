@@ -33,7 +33,7 @@ public class SettingsPreferences {
                 .putInt(Constants.PREF_LAST_SWITCH_NUMBER, position)
                 .apply();
     }
-    public static boolean getStoredOperation(Context context) {
+    private static boolean getStoredOperation(Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context)
                 .getBoolean(Constants.OPERATION, true);
     }
